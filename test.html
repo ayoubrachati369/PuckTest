@@ -14,12 +14,12 @@
     try 
 	{
       var j = JSON.parse(line);
-      console.log("Received JSON: ",j);
+      console.log("onLine try: ",j);
       elements.accelerometre.setValue(j);
     } 
 	catch(e) 
 	{
-      console.log("Received: ",j);
+      console.log("onLine catch: ",j);
     }
   }
   
