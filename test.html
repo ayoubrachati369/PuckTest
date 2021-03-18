@@ -14,7 +14,7 @@
     try 
 	{
       var j = JSON.parse(line);
-      console.log("Received JSON: ",j);
+      console.log("Received JSON: ",j.acc.x);
       elements.accelerometre.setValue(j.acc.x);
     } 
 	catch(e) 
