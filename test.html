@@ -16,6 +16,8 @@
       var j = JSON.parse(line);
       console.log("onLine try: ",j.accelerometre.acc.x);
       elements.accelerometre.setData(j.accelerometre.acc.x);
+      elements.light.setValue(j.accelerometre.acc.x);
+	console.log("testtt");
     } 
 	catch(e) 
 	{
