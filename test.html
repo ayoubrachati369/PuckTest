@@ -15,7 +15,7 @@
 	{
       var j = JSON.parse(line);
       console.log("Received JSON: ",j);
-      //elements.acceleration.setData(j.accel.x*10000);
+      elements.acceleration.setData(j.accel.x*10000);
     } 
 	catch(e) 
 	{
@@ -60,7 +60,7 @@
 			  // Now tell it to write data on the current light level to Bluetooth
 			  // 10 times a second. Also ensure that when disconnected, Puck.js
 			  // resets so the setInterval doesn't keep draining battery.
-			  connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({light:Puck.light()}));},100);NRF.on('disconnect', function() {reset()});\n",
+			  connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({acceleration:Puck.accel()}));},100);NRF.on('disconnect', function() {reset()});\n",
 				function() { console.log("Ready..."); });
 			  }, 1500);
 		   });
@@ -72,7 +72,8 @@
   var elements = 
   {
     heading : TD.label({x:10,y:10,width:190,height:50,label:"Dashboard"}),
-    light : TD.gauge({x:10,y:70,width:190,height:220,label:"Light",value:0,min:0,max:100}), //acceleration : TD.graph({x:210,y:10,width:400,height:180,label:"Acceleration"}),
+    light : TD.gauge({x:10,y:70,width:190,height:220,label:"Light",value:0,min:0,max:100}), 
+    acceleration : TD.graph({x:210,y:10,width:500,height:500,label:"Acceleration"}),
     modal: TD.modal({x:10,y:10,width:190,height:430,label:"Click to connect",onchange:connectDevice})
   }
   
