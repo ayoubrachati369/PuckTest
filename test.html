@@ -14,7 +14,7 @@
     try 
 	{
       var j = JSON.parse(line);
-      console.log("Received JSON: ",j);
+      console.log("Received JSON: ",j.acc.x);
       elements.acceleration.setData(j.acc.x*10000);
     } 
 	catch(e) 
