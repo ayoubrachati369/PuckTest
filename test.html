@@ -15,11 +15,12 @@
 	{
       var j = JSON.parse(line);
       console.log("Received JSON: ",j.acc.x);
-      elements.acceleration.setData(j.acc.x*10000);
+      console.log("try ...");
+      //elements.acceleration.setData(j.acc.x*10000);
     } 
 	catch(e) 
 	{
-      console.log("Received: ",line);
+      console.log("Catch: ",line);
     }
   }
   
