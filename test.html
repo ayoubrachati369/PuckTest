@@ -120,7 +120,25 @@ function setBarPos(id,d) {
         data: { datasets: [{ data: [] }, { data: [] }] },
         options: { scales: { xAxes: [{
           type: 'realtime',
-          realtime: { onRefresh: onRefresh }
+          realtime: {
+
+          onRefresh: function(chart) {
+
+            chart.data.datasets.forEach(function(dataset) {
+
+              dataset.data.push({
+
+                x: Date.now(),
+
+                y: Math.random()
+
+              });
+
+            });
+
+          }
+
+        }
         }] } }
       });
 </script>
