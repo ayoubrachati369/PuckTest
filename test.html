@@ -64,7 +64,7 @@ document.getElementById("btnConnect").addEventListener("click", function() {
 // When we get a line of data, check it and if it's
 // from the accelerometer, update it
 function onLine(line) {
-  console.log("RECEIVED:"+line);
+  console.log("line:"+line);
   var d = line.split(",");
   if (d.length==4 && d[0]=="A") {
     // we have an accelerometer reading
