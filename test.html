@@ -77,6 +77,7 @@ function onLine(line) {
     setBarPos("barX", accel.x);
     setBarPos("barY", accel.y);
     setBarPos("barZ", accel.z);
+    setChart(accel.z);
   }
 }
 // Set the position of each bar
@@ -92,6 +93,27 @@ function setBarPos(id,d) {
     s.width=(-d)+"px";
   }
 }
+
+ function setChart(d){
+   var ctx2 = document.getElementById('chart2').getContext('2d');
+   var chart2 = new Chart(ctx2, {
+        type: 'line',
+        data: { datasets: [{ data: [] }, { data: [] }] },
+        options: { scales: { xAxes: [{
+          type: 'realtime',
+          realtime: {
+            onRefresh: function(chart) {
+             chart.data.datasets.forEach(function(dataset) {
+              dataset.data.push({
+                x: Date.now(),
+                y: d
+              });
+            });
+          }
+        }
+        }] } }
+      });
+ }
 </script>
 <style>
 /* Styles just to make the bars for X Y and Z look neat */
@@ -113,34 +135,5 @@ function setBarPos(id,d) {
 }
 </style>
 <canvas id="chart2"></canvas>
-<script>
-   var ctx2 = document.getElementById('chart2').getContext('2d');
-   var chart2 = new Chart(ctx2, {
-        type: 'line',
-        data: { datasets: [{ data: [] }, { data: [] }] },
-        options: { scales: { xAxes: [{
-          type: 'realtime',
-          realtime: {
-
-          onRefresh: function(chart) {
-
-            chart.data.datasets.forEach(function(dataset) {
-
-              dataset.data.push({
-
-                x: Date.now(),
-
-                y: Math.random()
-
-              });
-
-            });
-
-          }
-
-        }
-        }] } }
-      });
-</script>
  </body>
 </html>
