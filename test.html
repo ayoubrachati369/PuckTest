@@ -112,5 +112,41 @@ function setBarPos(id,d) {
   top: 2px;
 }
 </style>
+<canvas id="myChart"></canvas>
+<script>var ctx = document.getElementById('myChart').getContext('2d');
+
+var chart = new Chart(ctx, {
+
+  type: 'line',
+
+  data: {
+
+    datasets: [{
+
+      data: []
+
+    }, {
+
+      data: []
+
+    }]
+
+  },
+
+  options: {
+
+    scales: {
+
+      xAxes: [{
+
+        type: 'realtime'
+
+      }]
+
+    }
+
+  }
+
+});</script>
  </body>
 </html>
