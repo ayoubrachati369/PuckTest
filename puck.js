@@ -458,3 +458,4 @@ Or more advanced usage with control of the connection
     }
   };
   return puck;
+}));
